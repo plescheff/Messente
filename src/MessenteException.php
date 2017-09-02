@@ -70,7 +70,7 @@ class MessenteException extends \Exception
      *
      * @return MessenteException
      */
-    public static function forErrorCode(string $code) : MessenteException
+    public static function forErrorCode($code)
     {
         if (isset(self::ERROR_MESSAGES[$code])) {
             $message = self::ERROR_MESSAGES[$code];
@@ -89,7 +89,7 @@ class MessenteException extends \Exception
      *
      * @return MessenteException
      */
-    public static function invalidResponse(string $response) : MessenteException
+    public static function invalidResponse($response)
     {
         return new self('Invalid response received from Messente API: ' . $response);
     }

@@ -53,7 +53,7 @@ class Messente
      * @param string $username
      * @param string $password
      */
-    public function __construct(string $username, string $password)
+    public function __construct($username, $password)
     {
         $this->client = new Client();
 
@@ -70,7 +70,7 @@ class Messente
      *
      * @return void
      */
-    public function setUseBackupApi(bool $useBackupApi)
+    public function setUseBackupApi($useBackupApi)
     {
         $this->useBackupApi = $useBackupApi;
     }
@@ -78,7 +78,7 @@ class Messente
     /**
      * @return bool
      */
-    public function getUseBackupApi() : bool
+    public function getUseBackupApi()
     {
         return $this->useBackupApi;
     }
@@ -88,7 +88,7 @@ class Messente
      *
      * @return string
      */
-    private function getApiUrl(string $endpoint) : string
+    private function getApiUrl($endpoint)
     {
         return ($this->useBackupApi ? self::BACKUP_API : self::PRIMARY_API) . $endpoint;
     }
@@ -104,7 +104,7 @@ class Messente
      * @throws RequestException  If the HTTP request fails.
      * @throws MessenteException If an error is received from the API.
      */
-    public function send(string $text, string $to, string $from = null) : string
+    public function send($text, $to, $from = null)
     {
         $parameters = [
             'username' => $this->username,
@@ -136,7 +136,7 @@ class Messente
      * @throws RequestException  If the HTTP request fails.
      * @throws MessenteException If an error is received from the API.
      */
-    public function getStatus(string $messageId) : string
+    public function getStatus($messageId)
     {
         $parameters = [
             'username'      => $this->username,
@@ -160,7 +160,7 @@ class Messente
      *
      * @throws MessenteException
      */
-    private function getResponse(ResponseInterface $response) : string
+    private function getResponse(ResponseInterface $response)
     {
         $body = (string) $response->getBody();
 
