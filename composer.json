@@ -1,5 +1,5 @@
 {
-  "name": "benmorel/messente",
+  "name": "plescheff/messente",
   "description": "Client library for the Messente SMS gateway",
   "type": "library",
   "keywords": [
@@ -8,7 +8,7 @@
   ],
   "license": "MIT",
   "require": {
-    "php": ">=7",
+    "php": ">=5.6",
     "guzzlehttp/guzzle": "6.*"
   },
   "autoload": {
