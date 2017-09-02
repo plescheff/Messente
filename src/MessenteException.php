@@ -72,7 +72,7 @@ class MessenteException extends \Exception
      */
     public static function forErrorCode($code)
     {
-        if (isset(self::ERROR_MESSAGES[$code])) {
+        if (key_exists($code, self::ERROR_MESSAGES)) {
             $message = self::ERROR_MESSAGES[$code];
         } else {
             $message = 'Unknown Messente API error';
